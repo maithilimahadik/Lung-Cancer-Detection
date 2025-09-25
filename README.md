@@ -2,7 +2,7 @@
 
 This project implements a deep learning solution for classifying lung images (X-ray/CT) into three categories: **Normal**, **Malignant** (Cancerous), or **Benign** (Non-Cancerous). The system utilizes **Transfer Learning** with a **pre-trained ResNet50 model** to achieve image classification and is deployed via an interactive web application.
 
-## ✨ Core Features
+## Core Features
 
   * **Deep Learning Model:** Built on a **pre-trained ResNet50** model using the Keras API for efficient feature extraction.
   * **Transfer Learning:** Weights of the ResNet50 base were **frozen** to leverage existing knowledge, and a custom classification head was added and trained.
@@ -10,7 +10,7 @@ This project implements a deep learning solution for classifying lung images (X-
   * **Web Interface:** A **Flask-based web application** provides a user-friendly interface for doctors/researchers to upload images and view real-time predictions and confidence scores.
   * **Comprehensive Evaluation:** Model performance was evaluated using **Loss, Accuracy, Classification Report, and a Confusion Matrix**.
 
-## 💻 Technologies Used
+## Technologies Used
 
 | Category | Technology | Purpose |
 | :--- | :--- | :--- |
@@ -20,7 +20,7 @@ This project implements a deep learning solution for classifying lung images (X-
 | **Web Framework** | **Flask** | Backend for the web application and REST API endpoint `/predict`. |
 | **Image Handling** | **PIL (Pillow)** | Used in the Flask app for reading and resizing uploaded images. |
 
-## 🚀 Setup and Run Instructions
+## Setup and Run Instructions
 
 ### Prerequisites
 
@@ -48,18 +48,3 @@ Ensure the trained model file (`lung_model.h5`) is in the same directory as `app
     ```
 2.  **Access Application:** The application will start on your local machine. Open your web browser and navigate to the address provided in the terminal (usually `http://127.0.0.1:5000/`).
 3.  **Predict:** Use the interface to upload a lung image. The `/predict` endpoint will process the image, make a prediction, and return the result and confidence.
-
-## 📊 Model Performance Highlights
-
-The model was evaluated on the test set, yielding the following results:
-
-  * **Test Loss:** $0.7576$
-  * **Test Accuracy:** $64.72%$
-
-## 🏗️ Model Architecture Diagram (Conceptual)
-
-1.  **Input Image:** $224 \\times 224$ (Resized/Normalized)
-2.  **Base:** **ResNet50** (Frozen Weights, Pre-trained on ImageNet)
-3.  **Bridge:** **GlobalAveragePooling2D**
-4.  **Classification Head:** **Dense (128, ReLU)** $\\rightarrow$ **Dropout (0.5)**
-5.  **Output:** **Dense (3, Softmax)** $\\rightarrow$ **Prediction (Normal/Malignant/Benign)**
